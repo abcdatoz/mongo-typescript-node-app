@@ -4,16 +4,14 @@ export interface IProducto extends Document {
   clave: string;
   nombre: string;
   precio: number;
-  imagen: Buffer;
-  imagenUrl: string;
+  imagen: string;
   categoriaId: Types.ObjectId;
 }
 
 const productoSchema = new Schema<IProducto>({
   clave: { type: String, required: true },
   nombre: { type: String, requird: true },
-  imagen: Buffer,
-  imagenUrl: String,
+  imagen: String,
   categoriaId: {
     type: Schema.Types.ObjectId,
     ref: "Categoria",

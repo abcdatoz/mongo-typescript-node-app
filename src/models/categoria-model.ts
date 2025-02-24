@@ -3,8 +3,7 @@ import { Document, Schema, Types, model } from "mongoose";
 export interface ICategoria extends Document {
   clave: string;
   nombre: string;
-  imagen?: Buffer;
-  imagenUrl?: string;
+  imagen?: string;
   activo?: boolean;
   restaurantId: Types.ObjectId;
 }
@@ -12,8 +11,7 @@ export interface ICategoria extends Document {
 const categoriaSchema = new Schema<ICategoria>({
   clave: { type: String, required: true },
   nombre: { type: String, required: true },
-  imagen: Buffer,
-  imagenUrl: String,
+  imagen: String,
   activo: Boolean,
   restaurantId: {
     type: Schema.Types.ObjectId,
@@ -22,6 +20,6 @@ const categoriaSchema = new Schema<ICategoria>({
   },
 });
 
-const Categoria = model<ICategoria>("Categeoria", categoriaSchema);
+const Categoria = model<ICategoria>("Categoria", categoriaSchema);
 
 export default Categoria;

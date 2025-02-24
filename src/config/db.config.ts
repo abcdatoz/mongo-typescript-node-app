@@ -1,3 +1,3 @@
-const url = "mongodb://localhost:27017/pilot"
+const url = "mongodb://localhost:27017/pilot-ts";
 
-export default url
+export default url;
