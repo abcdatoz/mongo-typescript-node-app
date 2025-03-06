@@ -42,7 +42,6 @@ const EditCategoriaService = async (
 
         return categoria;
     } catch (error) {
-        console.log(error);
         throw new AppError("Error al editar la categoria");
     }
 };

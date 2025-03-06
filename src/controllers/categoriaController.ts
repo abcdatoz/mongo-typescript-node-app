@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import AppError from "../errors/appError";
 import { ICategoria } from "../models/categoria-model";
 
 import ListCategoriaService from "../services/categoriaServices/listCategoriaService";

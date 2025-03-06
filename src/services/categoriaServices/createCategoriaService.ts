@@ -1,6 +1,5 @@
 import AppError from "../../errors/appError";
 import Categoria, { ICategoria } from "../../models/categoria-model";
-import CreateRestaurantService from "../restaurantServices/createRestaurantService";
 
 const CreateCategoriaService = async (
     data: ICategoria
