@@ -1,16 +1,29 @@
 import express from "express";
 import multer from "multer";
-import * as x from "../controllers/categoriaController";
+import categoriaController from "../controllers/appControllers/categoriaController";
 import { setupStorage } from "../config/upload";
+import isAuth from "../middleware/isAuth";
 
 const categoriaRoutes = express.Router();
 
 const storage = setupStorage("categorias");
 const upload = multer({ storage: storage });
 
-categoriaRoutes.get("/api/categorias", x.list);
-categoriaRoutes.post("/api/categorias", [upload.single("imagen")], x.add);
-categoriaRoutes.put("/api/categorias/:id", [upload.single("imagen")], x.edit);
-categoriaRoutes.delete("/api/categorias/:id", x.remove);
+categoriaRoutes.get("/api/categorias", categoriaController.listAll);
+categoriaRoutes.post(
+    "/api/categorias",
+    [isAuth, upload.single("imagen")],
+    categoriaController.create
+);
+categoriaRoutes.put(
+    "/api/categorias/:id",
+    [isAuth, upload.single("imagen")],
+    categoriaController.update
+);
+categoriaRoutes.delete(
+    "/api/categorias/:id",
+    isAuth,
+    categoriaController.remove
+);
 
 export default categoriaRoutes;

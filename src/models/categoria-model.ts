@@ -6,6 +6,8 @@ export interface ICategoria extends Document {
     imagen: string;
     activo: boolean;
     restaurantId: Types.ObjectId;
+    removed: boolean;
+    enabled: boolean;
 }
 
 const categoriaSchema = new Schema<ICategoria>({
@@ -18,6 +20,8 @@ const categoriaSchema = new Schema<ICategoria>({
         ref: "Restaurant",
         required: true,
     },
+    removed: { type: Boolean, default: false },
+    enabled: { type: Boolean, default: true },
 });
 
 const Categoria = model<ICategoria>("Categoria", categoriaSchema);

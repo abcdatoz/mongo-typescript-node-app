@@ -1,17 +1,24 @@
 {
-  "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "typeRoots": ["./node_modules/@types", "./@types"]
-  },
-  "include": ["src/**/*", "@types/express.d.ts"],
-  "exclude": ["node_modules"]
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "typeRoots": ["./node_modules/@types", "./@types"],
+        "baseUrl": "./", // Establece la raíz del proyecto, la cual es la carpeta donde se encuentra tsconfig.json.
+        "paths": {
+            "@/*": ["src/*"],
+            "@errors/*": ["src/errors/*"],
+            "@models/*": ["src/models/*"],
+            "@controllers/*": ["src/controllers/*"]
+        }
+    },
+    "include": ["src/**/*", "@types/express.d.ts"],
+    "exclude": ["node_modules"]
 }

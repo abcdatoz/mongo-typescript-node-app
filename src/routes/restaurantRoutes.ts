@@ -1,19 +1,29 @@
 import express from "express";
 import multer from "multer";
-import * as x from "../controllers/restaurantController";
-
+import restaurantController from "../controllers/appControllers/restaurantController";
+import isAuth from "../middleware/isAuth";
 import { setupStorage } from "../config/upload";
-
-//import isAuth from '../middleware/isAuth'
 
 const restaurantRoutes = express.Router();
 
 const storage = setupStorage("restaurant");
 const upload = multer({ storage: storage });
 
-restaurantRoutes.get("/api/restaurantes", x.list);
-restaurantRoutes.post("/api/restaurantes", [upload.single("logo")], x.add);
-restaurantRoutes.put("/api/restaurantes/:id", [upload.single("logo")], x.edit);
-restaurantRoutes.delete("/api/restaurantes/:id", x.remove);
+restaurantRoutes.get("/api/restaurantes", restaurantController.listAll);
+restaurantRoutes.post(
+    "/api/restaurantes",
+    [isAuth, upload.single("logo")],
+    restaurantController.create
+);
+restaurantRoutes.put(
+    "/api/restaurantes/:id",
+    [isAuth, upload.single("logo")],
+    restaurantController.update
+);
+restaurantRoutes.delete(
+    "/api/restaurantes/:id",
+    isAuth,
+    restaurantController.remove
+);
 
 export default restaurantRoutes;

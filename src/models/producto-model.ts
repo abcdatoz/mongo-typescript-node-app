@@ -7,6 +7,8 @@ export interface IProducto extends Document {
     imagen: string;
     activo: boolean;
     categoriaId: Types.ObjectId;
+    removed: boolean;
+    enabled: boolean;
 }
 
 const productoSchema = new Schema<IProducto>({
@@ -19,6 +21,8 @@ const productoSchema = new Schema<IProducto>({
         ref: "Categoria",
         required: true,
     },
+    removed: { type: Boolean, default: false },
+    enabled: { type: Boolean, default: true },
 });
 
 const Producto = model<IProducto>("Producto", productoSchema);

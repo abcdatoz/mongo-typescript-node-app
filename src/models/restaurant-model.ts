@@ -5,6 +5,8 @@ export interface IRestaurant extends Document {
     descripcion: string;
     domicilio: string;
     logo: string;
+    removed: boolean;
+    enabled: boolean;
 }
 
 const RestaurantSchema = new Schema<IRestaurant>({
@@ -12,6 +14,8 @@ const RestaurantSchema = new Schema<IRestaurant>({
     descripcion: { type: String, required: true },
     domicilio: { type: String, required: true },
     logo: String,
+    removed: { type: Boolean, default: false },
+    enabled: { type: Boolean, default: true },
 });
 
 const Restaurant = model<IRestaurant>("Restaurant", RestaurantSchema);
