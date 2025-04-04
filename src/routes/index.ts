@@ -3,6 +3,7 @@ import { Router } from "express";
 import restaurantRoutes from "./restaurantRoutes";
 import categoriasRoutes from "./categoriaRoutes";
 import productoRoutes from "./productoRoutes";
+import frutasRoutes from "./frutasRoutes";
 
 import colorRoutes from "./colorRoutes";
 import medidaRoutes from "./medidaRoutes";
@@ -19,6 +20,7 @@ routes.use(userRoutes);
 routes.use(restaurantRoutes);
 routes.use(categoriasRoutes);
 routes.use(productoRoutes);
+routes.use(frutasRoutes);
 
 routes.use(colorRoutes);
 routes.use(medidaRoutes);

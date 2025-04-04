@@ -31,6 +31,10 @@ app.get("/", (req, res) => {
     res.json({ messsage: "Opuz" });
 });
 
+app.get("/health", (req, res) => {
+    res.json({ message: "Neelix" });
+});
+
 app.use(routes);
 
 app.use(async (err: Error, req: Request, res: Response, _: NextFunction) => {

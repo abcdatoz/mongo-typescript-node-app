@@ -19,6 +19,6 @@
             "@controllers/*": ["src/controllers/*"]
         }
     },
-    "include": ["src/**/*", "@types/express.d.ts"],
+    "include": ["src/**/*", "@types/express.d.ts", "tests/**/*.ts"],
     "exclude": ["node_modules"]
 }
