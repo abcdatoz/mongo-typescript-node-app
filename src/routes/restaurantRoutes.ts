@@ -9,7 +9,11 @@ const restaurantRoutes = express.Router();
 const storage = setupStorage("restaurant");
 const upload = multer({ storage: storage });
 
+restaurantRoutes.get("/api/restaurantes/filter", restaurantController.filter);
+restaurantRoutes.get("/api/restaurantes/search", restaurantController.search);
+restaurantRoutes.get("/api/restaurantes/:id", restaurantController.read);
 restaurantRoutes.get("/api/restaurantes", restaurantController.listAll);
+
 restaurantRoutes.post(
     "/api/restaurantes",
     [isAuth, upload.single("logo")],

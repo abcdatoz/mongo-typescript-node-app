@@ -9,6 +9,10 @@ const productoRoutes = express.Router();
 const storage = setupStorage("productos");
 const upload = multer({ storage: storage });
 
+productoRoutes.get("/api/productos/filter", productoController.filter);
+productoRoutes.get("/api/productos/search", productoController.search);
+productoRoutes.get("/api/productos/listing", productoController.paginatedList);
+productoRoutes.get("/api/productos/:id", productoController.read);
 productoRoutes.get("/api/productos", productoController.listAll);
 
 productoRoutes.post(

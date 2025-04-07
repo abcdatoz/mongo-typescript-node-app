@@ -9,7 +9,7 @@ const create = async (
     try {
         const result = await new Model(req.body).save();
 
-        res.status(200).json({
+        res.status(201).json({
             success: true,
             result,
             message: "Succesfully created the document in model",

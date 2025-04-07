@@ -9,7 +9,15 @@ const categoriaRoutes = express.Router();
 const storage = setupStorage("categorias");
 const upload = multer({ storage: storage });
 
+categoriaRoutes.get("/api/categorias/filter", categoriaController.filter);
+categoriaRoutes.get("/api/categorias/search", categoriaController.search);
+categoriaRoutes.get(
+    "/api/categorias/listing",
+    categoriaController.paginatedList
+);
+categoriaRoutes.get("/api/categorias/:id", categoriaController.read);
 categoriaRoutes.get("/api/categorias", categoriaController.listAll);
+
 categoriaRoutes.post(
     "/api/categorias",
     [isAuth, upload.single("imagen")],
