@@ -10,7 +10,7 @@ colorRoutes.get("/api/color/listing", colorController.paginatedList);
 colorRoutes.get("/api/color/:id", colorController.read);
 colorRoutes.get("/api/color", colorController.listAll);
 
-colorRoutes.post("/api/color", isAuth, colorController.create);
+colorRoutes.post("/api/color",  colorController.create);
 colorRoutes.put("/api/color/:id", colorController.update);
 colorRoutes.delete("/api/color/:id", colorController.remove);
 

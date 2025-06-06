@@ -9,6 +9,8 @@ const update = async (req: Request, res: Response): Promise<void> => {
     const { clave, nombre } = req.body;
     const imagen = req.file?.filename || "";
 
+    console.log("entro a update");
+
     if (!id) throw new AppError("El id de la categoria es requerido");
 
     if (clave == undefined || nombre == undefined || imagen == undefined)

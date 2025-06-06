@@ -3,6 +3,7 @@ import multer from "multer";
 import categoriaController from "../controllers/appControllers/categoriaController";
 import { setupStorage } from "../config/upload";
 import isAuth from "../middleware/isAuth";
+import { Request, Response, NextFunction } from "express";
 
 const categoriaRoutes = express.Router();
 
@@ -16,13 +17,14 @@ categoriaRoutes.get(
     categoriaController.paginatedList
 );
 categoriaRoutes.get("/api/categorias/:id", categoriaController.read);
-categoriaRoutes.get("/api/categorias", categoriaController.listAll);
+categoriaRoutes.get("/api/categorias",  categoriaController.listAll);
 
 categoriaRoutes.post(
     "/api/categorias",
-    [isAuth, upload.single("imagen")],
+    [isAuth, upload.single("imagen")],   
     categoriaController.create
 );
+
 categoriaRoutes.put(
     "/api/categorias/:id",
     [isAuth, upload.single("imagen")],

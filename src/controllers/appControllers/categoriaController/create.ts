@@ -5,6 +5,8 @@ import AppError from "@/errors/appError";
 const create = async (req: Request, res: Response): Promise<void> => {
     const { clave, nombre, restaurantId } = req.body;
 
+    console.log("entro a crear");
+
     let imagen = req.file?.filename || "";
 
     const CategoriaModel = Categoria;

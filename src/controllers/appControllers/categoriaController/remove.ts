@@ -8,6 +8,8 @@ import Producto from "@/models/producto-model";
 const remove = async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
 
+    console.log("entro a eliminar");
+
     try {
         /*_________________validations__________________*/
 
